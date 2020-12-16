@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
@@ -16,14 +15,9 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// DB Config
-const db = require("./config/keys").mongoURI;
 
 // Passport middleware
 app.use(passport.initialize());
-
-// Passport config
-require("./config/passport")(passport);
 
 // Routes
 app.use("/api/users", users);

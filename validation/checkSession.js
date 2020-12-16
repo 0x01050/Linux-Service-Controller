@@ -1,11 +1,11 @@
 const Validator = require("validator");
 const isEmpty = require("is-empty");
 const jwt = require("jsonwebtoken");
-const keys = require("../config/keys");
+const Config = require("../config");
 
 module.exports = function checkSession(req) {
   let errors = {};
-
+  try{
   // get auth header
   const authHeader = req.headers.authorization;
 
@@ -18,10 +18,8 @@ module.exports = function checkSession(req) {
     const token = authHeader.split(' ')[1];
     jwt.verify(
       token,
-      keys.secretOrKey,
+      Config.secretOrKey,
       (err, decoded) => {
-        // console.log(err);
-        // console.log(decoded);
         if(err)
         {
           errors.token = "Token is invalid";
@@ -29,6 +27,10 @@ module.exports = function checkSession(req) {
 
       }
     )
+  }
+  }
+  catch(e){
+    errors.token = "Token is invalid";
   }
 
   return {
