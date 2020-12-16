@@ -5,7 +5,7 @@ const router = express.Router();
 const checkSession = require("../../validation/checkSession");
 
 // Load node.js cmd
-var cmd=require('node-cmd');
+var cmd = require('node-cmd');
 const isEmpty = require("is-empty");
 
 // Load Config
