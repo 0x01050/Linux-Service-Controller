@@ -1,6 +1,5 @@
 ## Configuration
-Make sure to add your own configurations in `./config.js`.
-
+Copy `./config.js.example` to `./config.js` and update with your own configurations.
 
 ## Development Mode
 ### Clone repository
