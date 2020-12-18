@@ -20,8 +20,8 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 
 // Routes
-app.use("/api/users", users);
-app.use("/api/dashboard", dashboard);
+app.use("/users", users);
+app.use("/dashboard", dashboard);
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
