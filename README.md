@@ -24,7 +24,7 @@ cd /opt && sudo git clone https://gitlab.com/crossoft-miller/service-controller
 ### Install PM2 and run backend
 ```sh
 # Install PM2 using NPM
-npm install pm2 -g
+sudo npm install pm2 -g
 # Run backend
 cd /opt/service-controller && sudo npm install && sudo pm2 start server.js
 ```
