@@ -19,14 +19,14 @@ npm run dev
 ## Production Mode
 ### Clone repository
 ```sh
-cd ~ && git clone https://gitlab.com/crossoft-miller/service-controller
+cd /opt && sudo git clone https://gitlab.com/crossoft-miller/service-controller
 ```
 ### Install PM2 and run backend
 ```sh
 # Install PM2 using NPM
 npm install pm2 -g
 # Run backend
-cd ~/service-controller && npm install && sudo pm2 start server.js
+cd /opt/service-controller && sudo npm install && sudo pm2 start server.js
 ```
 ### Install NGINX and Configure
 ```sh
@@ -43,12 +43,13 @@ server {
   server_name _;
 
   location / {
-    root ~/service-controller/client/build;
+    root /opt/service-controller/client/build;
     try_files $uri /index.html;
   }
 
   location /api/ {
     proxy_pass http://localhost:5000/;
+  }
 }
 ```
 ### Run on web browser
