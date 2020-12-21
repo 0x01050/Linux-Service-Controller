@@ -129,20 +129,9 @@ class ServiceController extends Component {
   render() {
     // const { user } = this.props.auth;
     const { status, friendlyName } = this.state;
-    const { classes } = this.props;
 
     return (
-      <Box
-        display="flex"
-        justifyContent="center"
-        mb={3}
-        className={classes.root}
-      >
-        <Grid
-          container
-          justify="space-between"
-          spacing={2}
-        >
+      <>
           <Grid
             item
             md={4}
@@ -226,8 +215,7 @@ class ServiceController extends Component {
               </Button>
             </Box>
           </Grid>
-        </Grid>
-      </Box>
+        </>
     );
   }
 }

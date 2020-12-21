@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import * as dashboardRequests from '../../services/dashboardRequest';
 import { logoutUser } from "../../actions/authActions";
 import {
+  Box,
+  Grid,
   Divider,
   withStyles
 } from '@material-ui/core';
@@ -52,19 +54,36 @@ class Dashboard extends Component {
   render() {
     // const { user } = this.props.auth;
     const {services} = this.state;
+    const { classes } = this.props;
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-        {
-          services.map(service=>(
-            <>
+      <div className="container valign-wrapper">
+
+        <Box
+          display="flex"
+          justifyContent="center"
+          mb={3}
+          className={classes.root}
+        >
+          <Grid
+            container
+            justify="space-between"
+            spacing={2}
+          >
+            {
+              services.map(service=>(
+                <>
               <ServiceController 
                 serviceName={service.serviceName}
                 friendlyName={service.friendlyName}
                 />
               <Divider />
-            </>
-          ))
-        }
+              </>
+              ))
+
+            }
+          </Grid>
+        </Box>
+
         <div className="row">
           <div className="landing-copy col s12 center-align">
             <button
@@ -72,7 +91,7 @@ class Dashboard extends Component {
                 width: "150px",
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
-                marginTop: "1rem"
+                marginTop: "1rem",
               }}
               onClick={this.onLogoutClick}
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
