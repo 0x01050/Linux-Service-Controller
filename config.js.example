@@ -2,9 +2,21 @@
 const Config = {
     email: "test@service.com",
     password: "testservice",
-    friendlyName : "VPN",
-    serviceName : "openvpn",
     secretOrKey: "secret",
+    services : [
+      {
+        friendlyName : "VPN",
+        serviceName : "openvpn",
+      },
+      {
+        friendlyName : "VPN",
+        serviceName : "openvpn",
+      },
+      {
+        friendlyName : "VPN",
+        serviceName : "openvpn",
+      },      
+    ]
   };
   
   module.exports = Config;

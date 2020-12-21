@@ -22,6 +22,9 @@ app.use(passport.initialize());
 // Routes
 app.use("/users", users);
 app.use("/dashboard", dashboard);
+// Routes for debug
+app.use("/api/users", users);
+app.use("/api/dashboard", dashboard);
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));

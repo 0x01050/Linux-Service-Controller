@@ -54,6 +54,11 @@ server {
 ### Run on web browser
 Open http://localhost or http://ipaddress on web browser
 
+### Restart NGINX
+```sh
+sudo service nginx restart
+```
+
 ### Restart backend
 ```sh
 sudo pm2 kill && cd /opt/service-controller && sudo pm2 start server.js
