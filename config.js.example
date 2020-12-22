@@ -1,6 +1,6 @@
 // Create Schema
 const Config = {
-    email: "test@service.com",
+    user: "testservice",
     password: "testservice",
     secretOrKey: "secret",
     services : [
@@ -9,13 +9,9 @@ const Config = {
         serviceName : "openvpn",
       },
       {
-        friendlyName : "VPN",
-        serviceName : "openvpn",
-      },
-      {
-        friendlyName : "VPN",
-        serviceName : "openvpn",
-      },      
+        friendlyName : "Nginx Server",
+        serviceName : "nginx",
+      },   
     ]
   };
   
