@@ -21,13 +21,13 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const email = req.body.email;
+  const user = req.body.user;
   const password = req.body.password;
 
-  // check user by email
-    // Check if user exists
-  if (!Config || Config.email !== email) {
-    return res.status(404).json({ emailnotfound: "Email not found" });
+  // check user by username
+  // Check if user exists
+  if (!Config || Config.user !== user) {
+    return res.status(404).json({ usernotfound: "User not found" });
   }
 
   // Check password
@@ -35,7 +35,7 @@ router.post("/login", (req, res) => {
     // User matched
     // Create JWT Payload
     const payload = {
-      email: Config.email,
+      user: Config.user,
     };
 
     // Sign token

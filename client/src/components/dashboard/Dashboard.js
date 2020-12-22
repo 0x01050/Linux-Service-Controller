@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import * as dashboardRequests from '../../services/dashboardRequest';
@@ -56,28 +56,40 @@ class Dashboard extends Component {
     const {services} = this.state;
     const { classes } = this.props;
     return (
-      <div className="container valign-wrapper">
+      <div
+        style={{paddingTop : '75px'}}
+        className="container">
 
         <Box
           display="flex"
           justifyContent="center"
-          mb={3}
+          mb={0}
           className={classes.root}
         >
           <Grid
             container
             justify="space-between"
-            spacing={2}
+            spacing={0}
           >
             {
-              services.map(service=>(
-                <>
-              <ServiceController 
-                serviceName={service.serviceName}
-                friendlyName={service.friendlyName}
-                />
-              <Divider />
-              </>
+              services.map((service, index)=>(
+                <Fragment
+                  key={index}
+                >
+                <ServiceController
+                  
+                  serviceName={service.serviceName}
+                  friendlyName={service.friendlyName}
+                  />
+                <Grid
+                  md={12}
+                  sm={12}
+                  xs={12}
+                  item
+                >
+                  <Divider />
+                </Grid>
+              </Fragment>
               ))
 
             }

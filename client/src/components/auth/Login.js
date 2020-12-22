@@ -8,7 +8,7 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
+      user: "",
       password: "",
       errors: {}
     };
@@ -41,7 +41,7 @@ class Login extends Component {
     e.preventDefault();
 
     const userData = {
-      email: this.state.email,
+      user: this.state.user,
       password: this.state.password
     };
 
@@ -64,18 +64,18 @@ class Login extends Component {
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
+                  value={this.state.user}
+                  error={errors.user}
+                  id="user"
+                  type="text"
                   className={classnames("", {
-                    invalid: errors.email || errors.emailnotfound
+                    invalid: errors.user || errors.usernotfound
                   })}
                 />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">User</label>
                 <span className="red-text">
-                  {errors.email}
-                  {errors.emailnotfound}
+                  {errors.user}
+                  {errors.usernotfound}
                 </span>
               </div>
               <div className="input-field col s12">

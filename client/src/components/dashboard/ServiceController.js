@@ -7,8 +7,6 @@ import {
   Box,
   Button,
   Grid,
-  Card,
-  CardContent,
   Typography,
   withStyles
 } from '@material-ui/core';
@@ -134,26 +132,27 @@ class ServiceController extends Component {
       <>
           <Grid
             item
-            md={4}
-            sm={4}
+            md={2}
+            sm={2}
+            xs={4}
           >
             {
             status
               ? (
                 <img
                   src="/on.jpg"
-                  height={50}
+                  height={40}
                   style={{
-                    marginTop: '10px'
+                    marginTop: '15px'
                   }}
                   alt="on status"
                 />
               ) : (
                 <img
                   src="/off.jpg"
-                  height={50}
+                  height={40}
                   style={{
-                    marginTop: '10px'
+                    marginTop: '15px'
                   }}
                   alt="off status"
                 />
@@ -161,30 +160,36 @@ class ServiceController extends Component {
           }
           </Grid>
           <Grid
-            md={8}
-            sm={8}
+            md={2}
+            sm={2}
+            xs={8}
             item
           >
-            <Card variant="outlined">
-              <CardContent>
-                <Typography color="textSecondary" gutterBottom>
-                  {friendlyName}
-                </Typography>
-              </CardContent>
-            </Card>
+
+            <Typography 
+              style={{
+                marginTop: '20px',
+                fontSize : 'large'
+              }}
+              color="textSecondary"
+              gutterBottom>
+              {friendlyName}
+            </Typography>
+
           </Grid>
           <Grid
-            md={12}
-            sm={12}
+            md={8}
+            sm={8}
+            xs={12}
             item
           >
-            <Box mx="auto" mt={10}>
+            <Box mx="auto" mt={0}>
               <Button
                 onClick={this.onStartClick}
                 variant="contained"
                 mt={1}
                 style={{
-                  margin: '10px'
+                  margin: '15px'
                 }}
                 color="primary"
               >
@@ -194,7 +199,7 @@ class ServiceController extends Component {
                 onClick={this.onStopClick}
                 variant="contained"
                 style={{
-                  margin: '10px'
+                  margin: '15px'
                 }}
                 pt={4}
                 color="secondary"
@@ -208,7 +213,7 @@ class ServiceController extends Component {
                 style={{
                   backgroundColor: 'green',
                   color: 'white',
-                  margin: '10px'
+                  margin: '15px'
                 }}
               >
                 Restart
