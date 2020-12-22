@@ -1,6 +1,16 @@
 ## Configuration
 Copy `./config.js.example` to `./config.js` and update with your own configurations.
 
+## Update
+### Pull repository
+```sh
+cd /opt/service-controller && sudo git pull origin master
+```
+### Restart backend
+```sh
+sudo pm2 kill && cd /opt/service-controller && sudo pm2 start server.js
+```
+
 ## Development Mode
 ### Clone repository
 ```sh

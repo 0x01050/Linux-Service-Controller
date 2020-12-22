@@ -1,8 +1,7 @@
-// Create Schema
 const Config = {
     user: "testservice",
     password: "testservice",
-    secretOrKey: "secret",
+    secretOrKey: "secret", // Used in server, don't need to change
     services : [
       {
         friendlyName : "VPN",
@@ -15,5 +14,4 @@ const Config = {
     ]
   };
   
-  module.exports = Config;
-  
+module.exports = Config;
