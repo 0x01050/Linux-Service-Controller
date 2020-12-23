@@ -3,16 +3,17 @@ import { InputTextarea } from '@bit/primefaces.primereact.inputtextarea';
 import PrimereactStyle from '@bit/primefaces.primereact.internal.stylelinks';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 
-const client = new W3CWebSocket('ws://127.0.0.1:8000');
 class WebSocketBox extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			value: 'WebSocket Text'
+			value: ''
 		};
 	}
 
-	componentWillMount() {
+	componentDidMount() {
+		const { webSocketServer } = this.props;
+		const client = new W3CWebSocket(webSocketServer);
 		client.onopen = () => {
 		  console.log('WebSocket Client Connected');
 		};

@@ -11,7 +11,8 @@ const Config = {
         friendlyName : "Nginx Server",
         serviceName : "nginx",
       },   
-    ]
+    ],
+    webSocketServer: "ws://localhost/ws"
   };
   
 module.exports = Config;

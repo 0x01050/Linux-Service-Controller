@@ -13,6 +13,8 @@ import {
 import ServiceController from "./ServiceController";
 import WebSocketBox from "./WebSocketBox";
 
+const isEmpty = require("is-empty");
+
 const styles = (theme) => ({
   root: {
     '& > *': {
@@ -28,6 +30,7 @@ class Dashboard extends Component {
     this.state = {
       status: false,
       services: [],
+      webSocketServer : "",
     };
   }
 
@@ -37,8 +40,8 @@ class Dashboard extends Component {
     .then((ret)=>{
       if(ret.connection)
       {
-        const services = ret.data.services;
-        this.setState({services});
+        const { services, webSocketServer} = ret.data;
+        this.setState({services, webSocketServer});
       }
     })
   }
@@ -55,8 +58,9 @@ class Dashboard extends Component {
 
   render() {
     // const { user } = this.props.auth;
-    const {services} = this.state;
+    const {services, webSocketServer} = this.state;
     const { classes } = this.props;
+    if(isEmpty(services) || isEmpty(webSocketServer)) return null;
     return (
       <div
         style={{paddingTop : '75px'}}
@@ -109,7 +113,7 @@ class Dashboard extends Component {
                 gutterBottom>
                 WebSocket Text
               </Typography>
-            <WebSocketBox />
+            <WebSocketBox webSocketServer={webSocketServer} />
             </Grid>
           </Grid>
         </Box>

@@ -86,3 +86,6 @@ server {
 
 ## Run on web browser
 Open http://localhost or http://ipaddress on web browser
+
+## WebSocket Server
+WebSocket server is running on ws://localhost/ws or ws://ipaddress/ws

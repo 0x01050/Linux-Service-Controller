@@ -63,6 +63,7 @@ router.post("/services", (req, res) => {
   res.json({
     success: true,
     services : Config.services,
+    webSocketServer : Config.webSocketServer,
     status: "ok",
   });
 });
