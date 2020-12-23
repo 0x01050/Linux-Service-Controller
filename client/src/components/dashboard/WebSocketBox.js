@@ -34,7 +34,7 @@ class WebSocketBox extends React.Component {
 					value={this.state.value}
 					readOnly={true}
 					rows={5}
-					cols={30}
+					// cols={30}
 					style={{height : "150px"}}
 				/>
 			</div>
