@@ -165,7 +165,6 @@ class ServiceController extends Component {
             xs={8}
             item
           >
-
             <Typography 
               style={{
                 marginTop: '20px',

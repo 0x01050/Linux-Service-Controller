@@ -7,9 +7,11 @@ import {
   Box,
   Grid,
   Divider,
-  withStyles
+  withStyles,
+  Typography,
 } from '@material-ui/core';
 import ServiceController from "./ServiceController";
+import WebSocketBox from "./WebSocketBox";
 
 const styles = (theme) => ({
   root: {
@@ -77,7 +79,6 @@ class Dashboard extends Component {
                   key={index}
                 >
                 <ServiceController
-                  
                   serviceName={service.serviceName}
                   friendlyName={service.friendlyName}
                   />
@@ -93,9 +94,25 @@ class Dashboard extends Component {
               ))
 
             }
+              <Grid
+                md={6}
+                sm={12}
+                xs={12}
+                item
+              >
+              <Typography 
+                style={{
+                  marginTop: '20px',
+                  fontSize : 'large'
+                }}
+                color="textSecondary"
+                gutterBottom>
+                WebSocket Text
+              </Typography>
+            <WebSocketBox />
+            </Grid>
           </Grid>
         </Box>
-
         <div className="row">
           <div className="landing-copy col s12 center-align">
             <button

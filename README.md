@@ -16,6 +16,13 @@ sudo pm2 kill && cd /opt/service-controller && sudo pm2 start server.js
 ```sh
 cd ~ && git clone https://gitlab.com/crossoft-miller/service-controller
 ```
+### PreConfig bit.dev login and register
+```sh
+# To configure the registry manually, use the npm config command.
+npm config set @bit:registry https://node.bit.dev
+# To install private components use npm login. Use your Bit credentials to login.
+npm login --registry=https://node.bit.dev --scope=@bit
+```
 ### Install dependencies and run
 ```sh
 # Install dependencies for server & client
