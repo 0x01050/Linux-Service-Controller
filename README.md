@@ -10,6 +10,11 @@ cd /opt/service-controller && sudo git pull origin master
 ```sh
 sudo pm2 kill && cd /opt/service-controller && sudo pm2 start server.js
 ```
+### Restart NGINX
+```sh
+sudo service nginx restart
+```
+
 
 ## Development Mode
 ### Clone repository
@@ -66,17 +71,18 @@ server {
   location /api/ {
     proxy_pass http://localhost:5000/;
   }
+
+  location /ws {
+    proxy_pass http://localhost:8080;
+    # this magic is needed for WebSocket
+    proxy_http_version  1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    }
 }
 ```
-### Run on web browser
+
+## Run on web browser
 Open http://localhost or http://ipaddress on web browser
-
-### Restart NGINX
-```sh
-sudo service nginx restart
-```
-
-### Restart backend
-```sh
-sudo pm2 kill && cd /opt/service-controller && sudo pm2 start server.js
-```
