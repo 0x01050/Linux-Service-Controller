@@ -70,7 +70,7 @@ export const getStatus = (serviceName) => {
   
   export const restartService = (serviceName) => {
     return axios
-      .post("/api/dashboard/restart", serviceName)
+      .post("/api/dashboard/restart", {serviceName})
       .then(res => {
         return {
           data : res.data,
