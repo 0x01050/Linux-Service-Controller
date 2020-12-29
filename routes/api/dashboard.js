@@ -176,7 +176,7 @@ router.post("/restart", (req, res) => {
     cmd.run(
       `systemctl restart ${serviceName}`,
       function(err, data, stderr){
-          var status = checkStatus();
+          var status = checkStatus(serviceName);
           res.json({
             success: isEmpty(err) || isEmpty(stderr),
             serviceName : serviceName,
