@@ -73,7 +73,7 @@ server {
   }
 
   location /ws {
-    proxy_pass http://localhost:8080;
+    proxy_pass http://localhost:8000;
     # this magic is needed for WebSocket
     proxy_http_version  1.1;
     proxy_set_header Upgrade $http_upgrade;
