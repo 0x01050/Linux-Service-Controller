@@ -60,7 +60,7 @@ sudo nano /etc/nginx/sites-available/default
 Paste in the following config
 ```sh
 server {
-  listen 80 default_server;
+  listen 81 default_server;
   server_name _;
 
   location / {
@@ -80,12 +80,12 @@ server {
     proxy_set_header Connection "upgrade";
     proxy_set_header Host $http_host;
     proxy_set_header X-Real-IP $remote_addr;
-    }
+  }
 }
 ```
 
 ## Run on web browser
-Open http://localhost or http://ipaddress on web browser
+Open http://localhost:81 or http://ipaddress:81 on web browser
 
 ## WebSocket Server
-WebSocket server is running on ws://localhost/ws or ws://ipaddress/ws
+WebSocket server is running on ws://localhost:81/ws or ws://ipaddress:81/ws

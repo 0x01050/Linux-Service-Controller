@@ -64,6 +64,7 @@ router.post("/services", (req, res) => {
     success: true,
     services : Config.services,
     webSocketServer : Config.webSocketServer,
+    maxWebSocketMsg : Config.maxWebSocketMsg,
     status: "ok",
   });
 });

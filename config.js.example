@@ -1,18 +1,19 @@
 const Config = {
-    user: "testservice",
-    password: "testservice",
-    secretOrKey: "secret", // Used in server, don't need to change
-    services : [
-      {
-        friendlyName : "VPN",
-        serviceName : "openvpn",
-      },
-      {
-        friendlyName : "Nginx Server",
-        serviceName : "nginx",
-      },   
-    ],
-    webSocketServer: "ws://localhost/ws"
-  };
+  user: "testservice",
+  password: "testservice",
+  secretOrKey: "secret", // Used in server, don't need to change
+  services : [
+    {
+      friendlyName : "VPN",
+      serviceName : "openvpn",
+    },
+    {
+      friendlyName : "Nginx Server",
+      serviceName : "nginx",
+    },   
+  ],
+  webSocketServer: "ws://localhost/ws",
+  maxWebSocketMsg: 100
+};
   
 module.exports = Config;

@@ -31,6 +31,7 @@ class Dashboard extends Component {
       status: false,
       services: [],
       webSocketServer : "",
+      maxWebSocketMsg : 0
     };
   }
 
@@ -40,8 +41,8 @@ class Dashboard extends Component {
     .then((ret)=>{
       if(ret.connection)
       {
-        const { services, webSocketServer} = ret.data;
-        this.setState({services, webSocketServer});
+        const { services, webSocketServer, maxWebSocketMsg } = ret.data;
+        this.setState({services, webSocketServer, maxWebSocketMsg});
       }
     })
   }
@@ -58,9 +59,9 @@ class Dashboard extends Component {
 
   render() {
     // const { user } = this.props.auth;
-    const {services, webSocketServer} = this.state;
+    const {services, webSocketServer, maxWebSocketMsg} = this.state;
     const { classes } = this.props;
-    if(isEmpty(services) || isEmpty(webSocketServer)) return null;
+    if(isEmpty(services) || isEmpty(webSocketServer) || maxWebSocketMsg === 0) return null;
     return (
       <div
         style={{paddingTop : '75px'}}
@@ -113,7 +114,7 @@ class Dashboard extends Component {
                 gutterBottom>
                 WebSocket Text
               </Typography>
-            <WebSocketBox webSocketServer={webSocketServer} />
+            <WebSocketBox webSocketServer={webSocketServer} maxWebSocketMsg={maxWebSocketMsg} />
             </Grid>
           </Grid>
         </Box>

@@ -7,35 +7,36 @@ class WebSocketBox extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			value: ''
+			websocketMsg: []
 		};
 	}
 
 	componentDidMount() {
-		const { webSocketServer } = this.props;
+		const { webSocketServer, maxWebSocketMsg } = this.props;
 		const client = new W3CWebSocket(webSocketServer);
 		client.onopen = () => {
 		  console.log('WebSocket Client Connected');
 		};
 		client.onmessage = (message) => {
-			var {value} = this.state;
+			var { websocketMsg } = this.state;
 			const dataFromServer = JSON.parse(message.data);
-			console.log(dataFromServer);
-			value = value + "\n" + dataFromServer.message;
-			this.setState({value});
+			websocketMsg.unshift(dataFromServer);
+			websocketMsg.splice(maxWebSocketMsg, 1);
+			this.setState({ websocketMsg });
 		};
 	  }
 
 	render() {
+		var { websocketMsg } = this.state;
+		const textareaValue = websocketMsg.map(el => el.message).join('\n');
 		return (
 			<div
 			>
 				<PrimereactStyle />
 				<InputTextarea
-					value={this.state.value}
+					value={textareaValue}
 					readOnly={true}
 					rows={5}
-					// cols={30}
 					style={{height : "150px"}}
 				/>
 			</div>
